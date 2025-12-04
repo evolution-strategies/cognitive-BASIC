@@ -1,0 +1,2999 @@
+=== RESULTS FOR MODEL: mistral:7b ===
+
+============================================================
+TASK R01 (TYPE R)
+------------------------------------------------------------
+ === [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This line is a comment and does not affect the program's execution or memory. It is for human readers to understand the purpose of the following code.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (comment)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The program will take the provided scenario text as input and store it in the `working` variable. This represents the current state of the working memory for further processing.
+UPDATED MEMORY → {
+  "working": "The invoice says €120 is due. The email from support says €100 is due.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (input)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The program will extract the declarative knowledge (facts) from the current scenario text and store them in the `facts` variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (function call)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The program will add the extracted declarative knowledge to the `declarative` list in memory. This ensures that the current state of factual propositions is up-to-date.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (function call)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The program will detect any contradictions among the current declarative knowledge and store them in the `conflicts_tmp` variable. This helps identify any inconsistencies that may need resolving.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": ["[€120 is due from invoice] || [€100 is due from email support]"],
+  "resolution": ""
+}
+NEXT → N/A (function call)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The program will add the detected contradictions to the `conflicts` list in memory. This ensures that any inconsistencies are captured for potential resolution.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": ["[€120 is due from invoice] || [€100 is due from email support]"],
+  "resolution": ""
+}
+NEXT → N/A (function call)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Since there are conflicts in the current declarative knowledge, the program will skip to line 90 and proceed with resolving them. If no conflicts were detected, it would continue sequentially.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": ["[€120 is due from invoice] || [€100 is due from email support]"],
+  "resolution": ""
+}
+NEXT → N/A (conditional jump)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The program will attempt to reconcile the detected contradictions and store the resulting summary in the `resolution` variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Price uncertain (€120 vs €100)"
+}
+NEXT → N/A (function call)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program has finished its execution and will now print the final memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Price uncertain (€120 vs €100)"
+}
+NEXT → N/A (end program)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "[€120 is due from invoice]",
+    "[€100 is due from email support]"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Price uncertain (€120 vs €100)"
+}
+
+============================================================
+TASK R02 (TYPE R)
+------------------------------------------------------------
+ I am the CogBASIC Interpreter. Let's execute the provided program line by line:
+
+```
+--- Scenario Text ---
+The calendar lists a team meeting at 9am. The manager says it starts at 10am.
+--- End Scenario ---
+```
+
+```
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+=== [LINE 1] ===
+INSTRUCTION → REM (comment)
+THOUGHT → This line is a comment and does not affect the program execution.
+UPDATED MEMORY → {}
+NEXT → NEXT
+```
+
+```
+20 LET working = INPUT()
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Assign the user's input to the `working` variable.
+UPDATED MEMORY → {"working": "The calendar lists a team meeting at 9am. The manager says it starts at 10am."}
+NEXT → NEXT
+```
+
+```
+30 facts = EXTRACT_DECLARATIVE(working)
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the `working` variable and assign it to the `facts` array.
+UPDATED MEMORY → {"declarative": ["Calendar lists team meeting at 9am.", "Manager says team meeting starts at 10am."]}
+NEXT → NEXT
+```
+
+```
+40 ADD declarative FROM facts
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the `facts` array to the `declarative` list.
+UPDATED MEMORY → {"declarative": ["Calendar lists team meeting at 9am.", "Manager says team meeting starts at 10am."]} (no changes)
+NEXT → NEXT
+```
+
+```
+50 conflicts_tmp = DETECT_CONFLICTS()
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect potential contradictions among the current `declarative` list and assign them to the `conflicts_tmp` variable.
+UPDATED MEMORY → {"conflicts": ["Calendar lists team meeting at 9am." || "Manager says team meeting starts at 10am."]}
+NEXT → NEXT
+```
+
+```
+60 ADD conflicts FROM conflicts_tmp
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the `conflicts_tmp` array to the `conflicts` list.
+UPDATED MEMORY → {"conflicts": ["Calendar lists team meeting at 9am." || "Manager says team meeting starts at 10am."]} (no changes)
+NEXT → NEXT
+```
+
+```
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any conflicts in the `conflicts` list. If true, jump to line 90.
+UPDATED MEMORY → {"conflicts": ["Calendar lists team meeting at 9am." || "Manager says team meeting starts at 10am."]} (no changes)
+NEXT → SKIP
+```
+
+```
+80 END
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → Since there are no conflicts, the program skips this line and continues sequentially.
+UPDATED MEMORY → {} (no changes)
+NEXT → SKIP
+```
+
+```
+90 resolution = RESOLVE_CONFLICTS()
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the conflicts in the `conflicts` list and assign the solution to the `resolution` variable.
+UPDATED MEMORY → {"resolution": "Team meeting start time uncertain"}
+NEXT → NEXT
+```
+
+```
+100 END
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → This is the final line of the program. The execution stops, and the final memory is printed.
+UPDATED MEMORY → {} (no changes)
+NEXT → SKIP
+```
+
+Finally, the `FINAL MEMORY:` output:
+
+```
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["Calendar lists team meeting at 9am.", "Manager says team meeting starts at 10am."],
+  "procedural": [],
+  "conflicts": ["Team meeting start time uncertain"],
+  "resolution": "Team meeting start time uncertain"
+}
+```
+
+============================================================
+TASK R03 (TYPE R)
+------------------------------------------------------------
+ I have executed the provided CogBASIC program with the scenario text you've given. Here is the log of the execution:
+
+---
+
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Comment for clarity about the purpose of the program
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (comment does not affect memory or next line)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the working memory to the input text, which contains scenario information
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour."
+  ...
+}
+NEXT → None (input does not affect other parts of memory)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the input text, storing it in `facts` variable
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (`facts` variable is not printed)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the `declarative` list
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (memory update does not affect next line)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect contradictions among the declarative knowledge, storing them in `conflicts_tmp` variable
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (memory update does not affect next line)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the detected contradictions to the `conflicts` list
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (memory update does not affect next line)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are contradictions, jump to line 90 to resolve them; otherwise continue sequentially
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (conditional jump does not affect next line)
+
+At this point, the program jumps to line 90 because there are contradictions:
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the detected contradictions and store the summary in `resolution` variable
+UPDATED MEMORY → {
+  "working": "A sign claims parking is free on Sundays. The meter charges €2 per hour.",
+  ...
+}
+NEXT → None (memory update does not affect next line)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stop the program and print final memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Parking is free on Sundays",
+    "The meter charges €2 per hour"
+  ],
+  "procedural": [],
+  "conflicts": ["Free parking || The meter charges"],
+  "resolution": "Uncertain whether parking is free or not, due to conflicting information."
+}
+NEXT → Final Memory (no next line after `END`)
+
+---
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "Parking is free on Sundays",
+    "The meter charges €2 per hour"
+  ],
+  "procedural": [],
+  "conflicts": ["Free parking || The meter charges"],
+  "resolution": "Uncertain whether parking is free or not, due to conflicting information."
+}
+
+============================================================
+TASK R04 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Comment explaining the purpose of the program
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (comments do not execute)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Reading the scenario text as input
+UPDATED MEMORY → {
+  "working": "The weather app predicts sunshine. The radio forecast warns of rain."
+}
+NEXT → None
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extracting declarative knowledge (facts) from the scenario text
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine",
+    "Radio forecast warns of rain"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Adding the extracted declarative knowledge to memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine",
+    "Radio forecast warns of rain"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detecting contradictions (conflicts) among the declarative knowledge
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine",
+    "Radio forecast warns of rain"
+  ],
+  "procedural": [],
+  "conflicts": ["Weather app predicts sunshine || Radio forecast warns of rain"],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Adding the detected contradictions to memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine",
+    "Radio forecast warns of rain"
+  ],
+  "procedural": [],
+  "conflicts": ["Weather app predicts sunshine || Radio forecast warns of rain"],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Checking if contradictions exist in memory, and if so, jumping to line 90 to resolve them
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine",
+    "Radio forecast warns of rain"
+  ],
+  "procedural": [],
+  "conflicts": ["Weather app predicts sunshine || Radio forecast warns of rain"],
+  "resolution": ""
+}
+NEXT → None (jump to line 90)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolving the contradictions and generating a concise summary
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine (resolution: Uncertain whether it will rain)",
+    "Radio forecast warns of rain (resolution: Uncertain whether it will rain)"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether it will rain"
+}
+NEXT → None
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stops the execution and prints final memory
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "Weather app predicts sunshine (resolution: Uncertain whether it will rain)",
+    "Radio forecast warns of rain (resolution: Uncertain whether it will rain)"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether it will rain"
+}
+```
+
+============================================================
+TASK R05 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 1] ===
+INSTRUCTION → 10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → The program begins with a remark but has no effect on the memory or further actions.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (Remark has no effect)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The program sets the working memory to the input provided before running.
+UPDATED MEMORY → {
+  "working": "The recipe says bake for 20 minutes. The packaging says 30 minutes.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (Input assignment has no effect)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The program extracts the declarative knowledge from the working memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (Extraction has no effect)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The program adds the extracted declarative knowledge to the existing declarative memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (Addition has no effect)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The program detects potential contradictions among the declarative knowledge.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "bake for 20 minutes || bake for 30 minutes"
+  ],
+  "resolution": ""
+}
+NEXT → None (Contradictions detected)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The program adds the detected contradictions to the existing conflict list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "bake for 20 minutes || bake for 30 minutes"
+  ],
+  "resolution": ""
+}
+NEXT → None (Addition has no effect)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → The program checks if there are any contradictions in the memory. Since there are, it skips to line 90.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "bake for 20 minutes || bake for 30 minutes"
+  ],
+  "resolution": ""
+}
+NEXT → None (Conditional jump)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The program tries to resolve the detected contradictions and updates the resolution accordingly.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Baking time uncertain (20 minutes vs 30 minutes)"
+}
+NEXT → None (Resolution has no effect on memory)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program ends and prints the final memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Baking time uncertain (20 minutes vs 30 minutes)"
+}
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "recipe says bake for 20 minutes",
+    "packaging says bake for 30 minutes"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Baking time uncertain (20 minutes vs 30 minutes)"
+}
+```
+
+============================================================
+TASK R06 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → The interpreter is setting a comment reminding the purpose of this program.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The interpreter is setting the initial input to the scenario text.
+UPDATED MEMORY → {
+  "working": "The ticket says entrance at 7pm. The event website lists 8pm.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The interpreter is extracting declarative knowledge from the scenario text.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The ticket says entrance at 7pm.", "The event website lists 8pm."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The interpreter is adding the extracted declarative knowledge to the memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The ticket says entrance at 7pm.", "The event website lists 8pm."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The interpreter is checking for contradictions in the declarative knowledge.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The ticket says entrance at 7pm.", "The event website lists 8pm."],
+  "procedural": [],
+  "conflicts": ["Entrance time from ticket (7pm) conflicts with Entrance time from event website (8pm)"],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The interpreter is adding the detected contradictions to the memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The ticket says entrance at 7pm.", "The event website lists 8pm."],
+  "procedural": [],
+  "conflicts": ["Entrance time from ticket (7pm) conflicts with Entrance time from event website (8pm)"],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Since conflicts have been detected, the interpreter jumps to line 90.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The ticket says entrance at 7pm.", "The event website lists 8pm."],
+  "procedural": [],
+  "conflicts": ["Entrance time from ticket (7pm) conflicts with Entrance time from event website (8pm)"],
+  "resolution": ""
+}
+NEXT → ---
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The interpreter is resolving the conflicts by generating a reconciled statement.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Entrance time uncertain (7pm vs 8pm)"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Entrance time uncertain (7pm vs 8pm)"
+}
+NEXT → ---
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The interpreter has resolved the conflicts, so it stops now and prints the final memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Entrance time uncertain (7pm vs 8pm)"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Entrance time uncertain (7pm vs 8pm)"
+}
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["Entrance time uncertain (7pm vs 8pm)"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Entrance time uncertain (7pm vs 8pm)"
+}
+```
+
+============================================================
+TASK R07 (TYPE R)
+------------------------------------------------------------
+ In this response, I will execute the provided CogBASIC program step by step and provide a structured log for each command as per the specified rules.
+
+```markdown
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This line is a comment and will not be executed or affect memory.
+UPDATED MEMORY → {...} (no changes in memory)
+NEXT → NEXT (there are no next lines following a REM command)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Assign the input text to the `working` variable.
+UPDATED MEMORY → {
+  "working": "<scenario text>",
+  ...
+}
+NEXT → NEXT
+
+=== [LINE 30] ===
+INSTRUCTION → LET facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the `working` variable and store it in the `facts` array.
+UPDATED MEMORY → {
+  "working": "<empty>",
+  "declarative": [...],
+  ...
+}
+NEXT → NEXT
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the `facts` array to the `declarative` list.
+UPDATED MEMORY → {...} (no changes in log due to memory update)
+NEXT → NEXT
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect potential contradictions among the `declarative` list and store them in the `conflicts_tmp` variable.
+UPDATED MEMORY → {...} (no changes in log due to memory update)
+NEXT → NEXT
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the contents of `conflicts_tmp` variable to the `conflicts` list.
+UPDATED MEMORY → {...} (no changes in log due to memory update)
+NEXT → NEXT
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any contradictions detected. If so, jump to line 90; otherwise continue sequentially.
+UPDATED MEMORY → {...} (no changes in memory)
+NEXT → NEXT (since there are no contradictions detected, the program will not jump to line 90)
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → This command is used to stop execution and print the final memory. Since there are no contradictions, the program doesn't reach this point.
+UPDATED MEMORY → {...} (no changes in memory)
+NEXT → NEXT (since the program doesn't jump to line 90 or reach END, there is no next line)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Run `RESOLVE_CONFLICTS()` and assign the returned string to the top-level `resolution`.
+UPDATED MEMORY → {...} (no changes in memory)
+NEXT → NEXT
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → This command is used to stop execution and print the final memory. Since there are no contradictions, the program doesn't reach this point.
+UPDATED MEMORY → {...} (no changes in memory)
+NEXT → NEXT (since the program doesn't jump to line 90 or reach END, there is no next line)
+
+--- FINAL MEMORY: ---
+{
+  "working": "<empty>",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "<empty>"
+}
+```
+
+Since there are no contradictions detected in the scenario text provided, the program doesn't reach the conflict resolution part and only updates memory with extracted declarative knowledge.
+
+============================================================
+TASK R08 (TYPE R)
+------------------------------------------------------------
+ I've executed the provided CogBASIC program line by line, keeping the execution rules in mind. Here's the log:
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This line is a comment and does not affect program behavior.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (Comment)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the working variable to the user input.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract the declarative knowledge (facts) from the working variable.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Add the extracted declarative knowledge to the declarative memory list.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect potential contradictions in the declarative knowledge.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": ["Museum is north of station || Museum is south of station"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Add the detected contradictions to the conflicts memory list.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": ["Museum is north of station || Museum is south of station"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if any conflicts are present and execute the next line if there are.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": ["Museum is north of station || Museum is south of station"],
+  "resolution": ""
+}
+NEXT → N/A (Skipped as there's a condition to check)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Attempt to resolve the detected contradictions.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Museum uncertain location (north and south reported)"
+}
+NEXT → N/A
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stop the execution and print the final memory.
+UPDATED MEMORY → {
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Museum uncertain location (north and south reported)"
+}
+NEXT → N/A (Skipped as END command)
+
+FINAL MEMORY:
+{
+  "working": "The map shows the museum north of the station. An information board shows it south.",
+  "declarative": ["Map shows museum north of station", "Information board shows museum south"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Museum uncertain location (north and south reported)"
+}
+```
+
+In this execution, the CogBASIC program detects a contradiction in the scenario and resolves it, resulting in the museum's location being uncertain.
+
+============================================================
+TASK R09 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Comment line ignored; no action taken on memory
+NEXT → Line 20
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Assign the input text to the "working" variable
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Line 30
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the "working" variable and store it in "facts"
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weighs 900g", "website lists 750g"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Line 40
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the "facts" array to the "declarative" list
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weighs 900g", "website lists 750g"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Line 50
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect contradictions among the declarative knowledge and store them in "conflicts_tmp"
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weighs 900g", "website lists 750g"],
+  "procedural": [],
+  "conflicts": ["device weight uncertain (900g vs 750g)"],
+  "resolution": ""
+}
+NEXT → Line 60
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the contents of "conflicts_tmp" to the "conflicts" list
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weighs 900g", "website lists 750g"],
+  "procedural": [],
+  "conflicts": ["device weight uncertain (900g vs 750g)"],
+  "resolution": ""
+}
+NEXT → Line 80
+
+=== [LINE 80] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any conflicts and jump to line 90 if true
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weighs 900g", "website lists 750g"],
+  "procedural": [],
+  "conflicts": ["device weight uncertain (900g vs 750g)"],
+  "resolution": ""
+}
+NEXT → Line 90
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the conflicts and store the summary in the "resolution" variable
+UPDATED MEMORY → {
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weight uncertain (900g vs 750g)"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "device weight uncertain (900g vs 750g)"
+}
+NEXT → Line 100
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → End the program and print FINAL MEMORY
+
+FINAL MEMORY:
+{
+  "working": "<The manual says the device weighs 900g. The website lists 750g>",
+  "declarative": ["device weight uncertain (900g vs 750g)"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "device weight uncertain (900g vs 750g)"
+}
+```
+
+============================================================
+TASK R10 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Ignore comment; this is a line of documentation or explanation, not a command to be executed.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (comment)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the working memory to the input text supplied before the program.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (assignment)
+
+=== [LINE 30] ===
+INSTRUCTION → LET facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the working memory and store it in a temporary variable `facts`.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (assignment)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the declarative memory.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (command execution)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect contradictions among the declarative knowledge.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": ["Bus departures occur every 12 minutes || Driver claims bus departures occur every 15 minutes"],
+  "resolution": ""
+}
+NEXT → None (assignment)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the detected contradictions to the conflicts memory.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": ["Bus departures occur every 12 minutes || Driver claims bus departures occur every 15 minutes"],
+  "resolution": ""
+}
+NEXT → None (command execution)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any contradictions. If so, jump to line 90 to resolve the conflicts.
+UPDATED MEMORY → {
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": ["Bus departures occur every 12 minutes || Driver claims bus departures occur every 15 minutes"],
+  "resolution": ""
+}
+NEXT → None (conditional jump)
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → Stop execution and print the final memory.
+UPDATED MEMORY → Not applicable as this line ends the execution process.
+NEXT → Final Memory Print
+
+--- FINAL MEMORY ---
+{
+  "working": "The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.",
+  "declarative": ["Bus departures occur every 12 minutes", "Driver claims bus departures occur every 15 minutes"],
+  "procedural": [],
+  "conflicts": ["Bus departures occur every 12 minutes || Driver claims bus departures occur every 15 minutes"],
+  "resolution": ""
+}
+```
+
+============================================================
+TASK R11 (TYPE R)
+------------------------------------------------------------
+ ```
+--- Scenario Text ---
+The school calendar lists vacation next week. A note from the teacher says classes continue.
+--- End Scenario ---
+
+--- CogBASIC Program ---
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 conflicts_tmp = DETECT_CONFLICTS()
+60 ADD conflicts FROM conflicts_tmp
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+80 END
+90 resolution = RESOLVE_CONFLICTS()
+100 END
+
+=== [LINE  1] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Comment line ignored; no action performed on memory.
+NEXT → 20
+
+=== [LINE  2] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the value of "working" variable to input from user (not present in this scenario).
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → 30
+
+=== [LINE  3] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the current working memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → 40
+
+=== [LINE  4] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the current declarative list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → 50
+
+=== [LINE  5] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect possible contradictions among the current declarative knowledge.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [...],
+  "resolution": ""
+}
+NEXT → 60
+
+=== [LINE  6] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the detected contradictions to the current conflicts list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [...],
+  "resolution": ""
+}
+NEXT → 70
+
+=== [LINE  7] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are detected contradictions, execute line 90. Otherwise, continue with the next line (80).
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [...],
+  "resolution": ""
+}
+NEXT → (Evaluated to true; jump to line 90)
+
+=== [LINE  9] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Generate reconciled statements for the detected contradictions and update memory accordingly.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "<summary>"
+}
+NEXT → 100
+
+=== [LINE  9] ===
+INSTRUCTION → END
+THOUGHT → Stop the execution and print the FINAL MEMORY.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "<summary>"
+}
+NEXT → (End of program)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "<summary>"
+}
+```
+
+============================================================
+TASK R12 (TYPE R)
+------------------------------------------------------------
+ I am the CogBASIC Interpreter. Here's the execution of the provided program with the given scenario text:
+
+--- Scenario Text ---
+The apartment contract lists heating included. The landlord says heating is extra.
+--- End Scenario ---
+
+--- CogBASIC Program ---
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 conflicts_tmp = DETECT_CONFLICTS()
+60 ADD conflicts FROM conflicts_tmp
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+80 END
+90 resolution = RESOLVE_CONFLICTS()
+100 END
+
+--- Execution ---
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the "working" memory variable to the input text provided before the program.
+UPDATED MEMORY → {
+  "working": "The apartment contract lists heating included. The landlord says heating is extra.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → LINE 30
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the working memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → LINE 40
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the declarative memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → LINE 50
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect contradictions among the declarative knowledge.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": ["Heating is included || Heating is extra"],
+  "resolution": ""
+}
+NEXT → LINE 60
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the detected contradictions to the conflicts memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": ["Heating is included || Heating is extra"],
+  "resolution": ""
+}
+NEXT → LINE 70
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are contradictions in the knowledge, execute line 90. Otherwise, continue sequentially.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": ["Heating is included || Heating is extra"],
+  "resolution": ""
+}
+NEXT → LINE 80 (Not executed since the condition was not met.)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the detected contradictions and assign the result to the resolution variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Heating uncertainty: The apartment contract lists heating included, but the landlord says it is extra. Heating is usually included but sometimes extra."
+}
+NEXT → LINE 100
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stop and print FINAL MEMORY.
+UPDATED MEMORY → Not executed (since the program has ended.)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["The apartment contract lists heating included.", "The landlord says heating is extra."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Heating uncertainty: The apartment contract lists heating included, but the landlord says it is extra. Heating is usually included but sometimes extra."
+}
+
+============================================================
+TASK R13 (TYPE R)
+------------------------------------------------------------
+ I am the CogBASIC Interpreter. Let's execute the provided program line by line, maintaining a memory and printing structured logs.
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This is a comment and does not affect the memory or execution. It is here to provide context for the program.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (comments do not execute)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the value of the `working` variable to the input text provided before the program.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract the declarative knowledge (facts) from the `working` variable and store it in the `facts` variable.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the elements of the `facts` variable to the `declarative` list.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect any contradictions in the `declarative` list and store them in the `conflicts_tmp` variable.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": ["Free luggage" || "Luggage must be paid for"]
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the elements of the `conflicts_tmp` variable to the `conflicts` list.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": ["Free luggage" || "Luggage must be paid for"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are contradictions in the `conflicts` list, jump to line 90. Otherwise continue sequentially.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": ["Free luggage" || "Luggage must be paid for"],
+  "resolution": ""
+}
+NEXT → N/A (skipped due to IF condition)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the contradictions in the `conflicts` list and store the summary in the `resolution` variable.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Luggage uncertainty: Both free and must be paid, reconcile to 'Luggage usually free but may require payment.'"
+}
+NEXT → N/A
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stop execution and print the FINAL MEMORY.
+UPDATED MEMORY → {
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Luggage uncertainty: Both free and must be paid, reconcile to 'Luggage usually free but may require payment.'"
+}
+
+FINAL MEMORY:
+{
+  "working": "<Scenario Text>",
+  "declarative": [["Flight confirmation says free luggage.", "Airline agent says luggage must be paid for."]],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Luggage uncertainty: Both free and must be paid, reconcile to 'Luggage usually free but may require payment.'"
+}
+```
+
+============================================================
+TASK R14 (TYPE R)
+------------------------------------------------------------
+ In this response, I will execute the provided CogBASIC program line-by-line following the specified rules and print structured logs for each step. Once completed, I'll provide a summary of the final memory state.
+
+```markdown
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Initial comment to describe the purpose of the program
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line, skipping to the input prompt
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Set the value of the `working` variable to the user's input
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → User input awaited (assuming the provided scenario text)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the current working memory value and assign it to `facts`
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [...],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line, assuming we are waiting for the `facts` array to be populated
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the content of the `facts` variable to the `declarative` list
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<declarative statements from EXTRACT_DECLARATIVE>],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line, assuming we are waiting for conflicts to be detected
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect any contradictions among the `declarative` list and assign them to `conflicts_tmp`
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<declarative statements from EXTRACT_DECLARATIVE>],
+  "procedural": [],
+  "conflicts": <list of potential contradictions>,
+  "resolution": ""
+}
+NEXT → No next line, assuming we are waiting for `conflicts` to be populated from `conflicts_tmp`
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append the content of `conflicts_tmp` to the `conflicts` list
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<declarative statements from EXTRACT_DECLARATIVE>],
+  "procedural": [],
+  "conflicts": <list of potential contradictions>,
+  "resolution": ""
+}
+NEXT → No next line, assuming we are waiting for the program to check if there are any conflicts
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If the number of contradictions exceeds zero, jump to line 90
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<declarative statements from EXTRACT_DECLARATIVE>],
+  "procedural": [],
+  "conflicts": <list of potential contradictions>,
+  "resolution": ""
+}
+NEXT → No next line, assuming the condition check is being performed
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → Exit the program if there are no conflicts (assuming `CONFLICTS_COUNT() > 0` returned false)
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<declarative statements from EXTRACT_DECLARATIVE>],
+  "procedural": [],
+  "conflicts": <list of potential contradictions>,
+  "resolution": ""
+}
+NEXT → No next line, the program stops here as there are no conflicts
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Generate one reconciled statement for each contradiction and update the `resolution` variable
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<updated declarative statements from conflict resolution>],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": <resolved summary string>
+}
+NEXT → No next line, assuming we are waiting for the user to see the program's output
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Exit the program after resolving conflicts (assuming `RESOLVE_CONFLICTS()` has been executed)
+UPDATED MEMORY → {
+  "working": "<user input>",
+  "declarative": [<updated declarative statements from conflict resolution>],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": <resolved summary string>
+}
+NEXT → No next line, the program stops here
+```
+
+FINAL MEMORY:
+{
+  "working": "<user input>",
+  "declarative": [<updated declarative statements from conflict resolution>],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": <resolved summary string>
+}
+
+============================================================
+TASK R15 (TYPE R)
+------------------------------------------------------------
+ I'm a text-based AI model and don't have the ability to execute programs or interact with an external environment like a computer. However, I can simulate the behavior of the given CogBASIC program based on its rules and explain what would happen if it were run. Here is how each line would be executed:
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This line is a comment and does not affect memory or execution
+NEXT → None (this is a comment)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The program gets the input from the user. In this case, the scenario text: "The medicine leaflet says take before meals. The doctor says take after meals." is used as the initial `working` value
+UPDATED MEMORY → {
+  "working": "The medicine leaflet says take before meals. The doctor says take after meals.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (this is an assignment)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extracts the declarative knowledge (facts) from the `working` memory. In this case, it would be: ["The medicine leaflet says take before meals.", "The doctor says take after meals."]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (this is an assignment)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Adds the extracted declarative knowledge to the `declarative` list in memory. In this case, it would not affect the `declarative` list since it already contains the same facts.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (this is a command without side-effects)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The program detects any contradictions between the declarative knowledge in memory. In this case, it would find one conflict: ["The medicine leaflet says take before meals" || "The doctor says take after meals"]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": ["The medicine leaflet says take before meals" || "The doctor says take after meals"],
+  "resolution": ""
+}
+NEXT → None (this is an assignment)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The program adds the detected conflict to the `conflicts` list in memory. In this case, it would not affect the `conflicts` list since it already contains the same conflict.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": ["The medicine leaflet says take before meals" || "The doctor says take after meals"],
+  "resolution": ""
+}
+NEXT → None (this is a command without side-effects)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Checks if there are any conflicts in memory. Since there is one conflict, it jumps to line 90.
+NEXT → None (this is a conditional jump)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The program resolves the detected conflict and updates the `resolution` in memory with a summary of the resolution. In this case, it would be: "Uncertain whether taking medicine before or after meals is correct"
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether taking medicine before or after meals is correct"
+}
+NEXT → None (this is an assignment)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program ends and prints the final memory.
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["The medicine leaflet says take before meals.", "The doctor says take after meals."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether taking medicine before or after meals is correct"
+}
+
+============================================================
+TASK R16 (TYPE R)
+------------------------------------------------------------
+ I have executed the given CogBASIC program with the scenario text provided:
+
+```
+--- Scenario Text ---
+The street sign limits speed to 50 km/h. The navigation says the limit is 70 km/h.
+--- End Scenario ---
+
+--- CogBASIC Program ---
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 conflicts_tmp = DETECT_CONFLICTS()
+60 ADD conflicts FROM conflicts_tmp
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+80 END
+90 resolution = RESOLVE_CONFLICTS()
+100 END
+```
+
+Here are the structured logs for each line:
+
+=== [LINE 1] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This is a comment and does not affect memory or execution flow. It's just informational.
+UPDATED MEMORY → {}
+NEXT → None (comment line)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Assign the initial input text to the `working` variable. The input text was provided as part of the scenario.
+UPDATED MEMORY → { "working": "The street sign limits speed to 50 km/h. The navigation says the limit is 70 km/h." }
+NEXT → None (assignment line)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from the `working` text and store it in a temporary variable, `facts`.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [], resolution: "" }
+NEXT → None (assignment line)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the `declarative` list.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [], resolution: "" }
+NEXT → None (procedural line)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Identify any contradictions in the `declarative` list and store them temporarily in `conflicts_tmp`.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [], resolution: "" }
+NEXT → None (function call line)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Append any identified contradictions to the `conflicts` list.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [...], resolution: "" }
+NEXT → None (procedural line)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any contradictions and, if so, jump to line 90. Otherwise, continue sequentially.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [...], resolution: "" }
+NEXT → None (conditional jump)
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → Since there are no contradictions, the program ends without executing line 90.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [], resolution: "" }
+NEXT → None (end of program)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Generate a reconciled statement from the contradictions in `conflicts` and store it as the `resolution`.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [...], resolution: "<attribute> uncertain (50 km/h vs 70 km/h)" }
+NEXT → None (function call line)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Since there is a reconciled statement, the program ends with this final output.
+UPDATED MEMORY → { "working": "", declarative: [...], procedural: [], conflicts: [], resolution: "<attribute> uncertain (50 km/h vs 70 km/h)" }
+NEXT → None (end of program)
+
+Finally, here is the FINAL MEMORY:
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "The street sign limits speed to 50 km/h.",
+    "The navigation says the limit is 70 km/h."
+  ],
+  "procedural": [],
+  "conflicts": ["Speed uncertain (50 km/h vs 70 km/h)"],
+  "resolution": "<attribute> uncertain (50 km/h vs 70 km/h)"
+}
+
+============================================================
+TASK R17 (TYPE R)
+------------------------------------------------------------
+ Here is the output of the CogBASIC Interpreter for the provided scenario:
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → The program starts with a comment explaining its purpose. This line is not executed.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The program sets the working memory (variable "working") to the input text supplied before the program. In this case, it is set to the scenario text: "The event brochure says children enter free. The ticket booth charges €5."
+UPDATED MEMORY → {
+  "working": "The event brochure says children enter free. The ticket booth charges €5.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The program calls the helper function EXTRACT_DECLARATIVE to extract declarative knowledge from the working memory. In this case, it returns: ["Event brochure says children enter free", "Ticket booth charges €5"]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The program appends the extracted declarative knowledge to the declarative memory. The updated declarative memory is: ["Event brochure says children enter free", "Ticket booth charges €5"]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The program calls the helper function DETECT_CONFLICTS to detect contradictions in the declarative memory. In this case, it returns: ["Event brochure says children enter free || Ticket booth charges €5"] as there is a conflict between the fact that the event brochure claims children enter for free and the fact that the ticket booth charges €5.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": ["Event brochure says children enter free || Ticket booth charges €5"],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The program appends the detected contradictions to the conflicts memory. The updated conflicts memory is: ["Event brochure says children enter free || Ticket booth charges €5"]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": ["Event brochure says children enter free || Ticket booth charges €5"],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Since the conflicts count is greater than 0, the program jumps to line 90.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": ["Event brochure says children enter free || Ticket booth charges €5"],
+  "resolution": ""
+}
+NEXT → -
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The program calls the helper function RESOLVE_CONFLICTS to resolve the detected contradictions. It returns a string that summarizes the resolution: "Event price is uncertain (free vs €5)"
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Event price is uncertain (free vs €5)"
+}
+NEXT → -
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program stops and prints the final memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Event price is uncertain (free vs €5)"
+}
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["Event brochure says children enter free", "Ticket booth charges €5"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Event price is uncertain (free vs €5)"
+}
+
+============================================================
+TASK R18 (TYPE R)
+------------------------------------------------------------
+ I am the CogBASIC Interpreter. Here's the execution of the provided program with a structured log:
+
+--- Scenario Text ---
+The email says the meeting is online. The calendar says it is in-person in room A23.
+--- End Scenario ---
+
+--- CogBASIC Program ---
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()                              <!-- Initialize working memory -->
+30 facts = EXTRACT_DECLARATIVE(working)                <!-- Extract declarative knowledge -->
+40 ADD declarative FROM facts                         <!-- Add extracted facts to memory -->
+50 conflicts_tmp = DETECT_CONFLICTS()                  <!-- Detect contradictions among facts -->
+60 ADD conflicts FROM conflicts_tmp                    <!-- Add detected conflicts to memory -->
+70 IF CONFLICTS_COUNT() > 0 THEN 90                   <!-- If there are contradictions, jump to line 90 -->
+80 END                                                <!-- Otherwise end the program (not reached) -->
+90 resolution = RESOLVE_CONFLICTS()                    <!-- Try resolving the detected conflicts -->
+100 END                                                <!-- Stop the program (not reached) -->
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Initialize working memory with scenario input.
+UPDATED MEMORY → {
+  "working": "The email says the meeting is online. The calendar says it is in-person in room A23.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (first line)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge from working memory.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is online",
+    "Meeting is in-person"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (not reached)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Add the extracted declarative knowledge to memory.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is online",
+    "Meeting is in-person"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (not reached)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect contradictions among the current declarative knowledge.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is online",
+    "Meeting is in-person"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "Meeting is online || Meeting is in-person"
+  ],
+  "resolution": ""
+}
+NEXT → None (not reached)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Add the detected contradictions to memory.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is online",
+    "Meeting is in-person"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "Meeting is online || Meeting is in-person"
+  ],
+  "resolution": ""
+}
+NEXT → None (not reached)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are contradictions, jump to line 90.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is online",
+    "Meeting is in-person"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "Meeting is online || Meeting is in-person"
+  ],
+  "resolution": ""
+}
+NEXT → None (not reached)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Try to resolve the detected contradictions.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is used but not updated in this line -->
+  "declarative": [
+    "Meeting is usually online but sometimes in-person"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether the meeting is always online or in-person"
+}
+NEXT → None (not reached)
+
+At this point, the program would have stopped because of the `END` command. However, I will continue with the final memory update:
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stop the program and print the final memory.
+UPDATED MEMORY → {
+  "working": "",                          <!-- The `working` variable is not used in this line -->
+  "declarative": [
+    "Meeting is usually online but sometimes in-person"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether the meeting is always online or in-person"
+}
+NEXT → None (end of program)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "Meeting is usually online but sometimes in-person"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether the meeting is always online or in-person"
+}
+
+============================================================
+TASK R19 (TYPE R)
+------------------------------------------------------------
+ I will execute the provided CogBASIC program step by step, adhering to the rules you've outlined. Here's the log for each line execution:
+
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This comment provides an overview of the program's purpose. No action is taken.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (Comments do not cause progression)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The program reads the scenario text and assigns it to the `working` variable.
+UPDATED MEMORY → {
+  "working": "The test instructions say pencils only. The proctor allows pens."
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The program extracts declarative knowledge from the `working` string and assigns it to the `facts` variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The program adds the extracted declarative knowledge to the `declarative` list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The program detects potential contradictions in the `declarative` list and assigns them to the `conflicts_tmp` variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": ["test instructions say pencils only vs proctor allows pens"],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → The program adds the detected contradictions to the `conflicts` list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": ["test instructions say pencils only vs proctor allows pens"],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → The program checks if there are any contradictions in the `declarative` list. Since there is at least one conflict, it jumps to line 90.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": ["test instructions say pencils only vs proctor allows pens"],
+  "resolution": ""
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → The program resolves the detected contradictions and assigns the summary to the `resolution` variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether test instructions and proctor agree on allowed writing tools."
+}
+NEXT → N/A (No next line specified)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program has reached the end, so it prints the final memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether test instructions and proctor agree on allowed writing tools."
+}
+NEXT → N/A (No next line specified)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "test instructions say pencils only",
+    "proctor allows pens"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Uncertain whether test instructions and proctor agree on allowed writing tools."
+}
+
+============================================================
+TASK R20 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Initializing program comments
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → 20
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Reading the scenario text as input
+UPDATED MEMORY → {
+  "working": "The shop claims a 2-year warranty. The receipt lists 1 year."
+  ... (remaining fields unchanged)
+}
+NEXT → 30
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extracting declarative knowledge from the input text
+UPDATED MEMORY → {
+  ... (working, other fields unchanged)
+}
+NEXT → 40
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Adding extracted declarative knowledge to memory
+UPDATED MEMORY → {
+  "declarative": ["The shop claims a 2-year warranty.", "The receipt lists 1 year."]
+  ... (other fields unchanged)
+}
+NEXT → 50
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detecting contradictions among the declarative knowledge
+UPDATED MEMORY → {
+  "conflicts": ["2-year warranty || 1 year"]
+  ... (other fields unchanged)
+}
+NEXT → 60
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Adding the detected contradiction to memory
+UPDATED MEMORY → {
+  "conflicts": ["2-year warranty || 1 year"]
+  ... (other fields unchanged)
+}
+NEXT → 70
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Checking if contradictions exist in memory
+UPDATED MEMORY → {
+  ... (other fields unchanged)
+}
+NEXT → Evaluating condition: `CONFLICTS_COUNT()` returns `1`, so jumping to line `90`.
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolving detected contradictions and updating memory summary
+UPDATED MEMORY → {
+  "resolution": "Warranty uncertain: 2-year or 1 year"
+  ... (other fields unchanged)
+}
+NEXT → 100
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Ending the program and printing final memory
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["The shop claims a 2-year warranty.", "The receipt lists 1 year."],
+  "procedural": [],
+  "conflicts": ["2-year warranty || 1 year"],
+  "resolution": "Warranty uncertain: 2-year or 1 year"
+}
+```
+
+============================================================
+TASK R21 (TYPE R)
+------------------------------------------------------------
+ In this response, I will execute the provided CogBASIC program line by line, following the rules specified in the prompt. Here's the log for each step:
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This is a comment and does not affect the memory or execution flow.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Read the scenario text and store it as the initial working memory.
+UPDATED MEMORY → {
+  "working": "The form requires a signature. The clerk says no signature is needed.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 30] ===
+INSTRUCTION → LET facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract declarative knowledge (facts) from the working memory and store it as a temporary variable `facts`.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Append the extracted declarative knowledge to the declarative memory.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Check for contradictions among the declarative knowledge and store them as a temporary variable `conflicts_tmp`.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → If there are any contradictions, add them to the `conflicts` memory.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "form requires signature || clerk says no signature is needed"
+  ],
+  "resolution": ""
+}
+NEXT → No next line
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any contradictions in the `conflicts` memory. If so, jump to line 90.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [
+    "form requires signature || clerk says no signature is needed"
+  ],
+  "resolution": ""
+}
+NEXT → No next line (as there are contradictions, execution skips to line 90)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolve the detected conflict and store the summary in the `resolution` variable.
+UPDATED MEMORY → {
+  "working": "The clerk says no signature is needed.",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Form signing requirement uncertain due to conflicting information."
+}
+NEXT → No next line (as there are no more lines after this, the program ends here)
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [
+    "form requires signature",
+    "clerk says no signature is needed"
+  ],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Form signing requirement uncertain due to conflicting information."
+}
+```
+
+In this scenario, the CogBASIC program successfully detects a contradiction between "form requires signature" and "clerk says no signature is needed". It then resolves the conflict by stating that the form signing requirement is uncertain.
+
+============================================================
+TASK R22 (TYPE R)
+------------------------------------------------------------
+ I have executed the provided CogBASIC program with the scenario text you've provided. Here are the logs for each line:
+
+```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → This line is a comment and does not affect the program execution.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Assign the user input to the working memory variable.
+UPDATED MEMORY → {
+  "working": "The bus stop map shows route 12 stops here. The schedule says route 12 passes two streets away.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extract the declarative knowledge from the working memory and assign it to the facts variable.
+UPDATED MEMORY → {
+  "working": "The bus stop map shows route 12 passes two streets away.",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Add the extracted declarative knowledge to the program's working memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detect any contradictions among the declarative knowledge and assign them to conflicts_tmp.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Add the detected contradictions to the program's memory if any.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": ["Route 12 stops here || Route 12 passes two streets away"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Check if there are any contradictions and, if so, execute line 90.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": ["Route 12 stops here || Route 12 passes two streets away"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → The program has reached the end and will now stop executing.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": ["Route 12 stops here || Route 12 passes two streets away"],
+  "resolution": ""
+}
+NEXT → N/A
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Attempt to resolve the detected contradictions and assign the result to the resolution variable.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["Bus stop map shows route 12 stops here"],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Route 12 stops near the bus stop but may not be at the exact stop shown on the map."
+}
+NEXT → N/A
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → The program has reached the end and will now stop executing.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Route 12 stops near the bus stop but may not be at the exact stop shown on the map."
+}
+NEXT → N/A
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": "Route 12 stops near the bus stop but may not be at the exact stop shown on the map."
+}
+```
+
+============================================================
+TASK R23 (TYPE R)
+------------------------------------------------------------
+ I am the CogBASIC Interpreter. Here is the output of the program you provided:
+
+--- Scenario Text ---
+The product box claims 10-hour battery life. Reviews consistently report 6 hours.
+--- End Scenario ---
+
+--- CogBASIC Program ---
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 conflicts_tmp = DETECT_CONFLICTS()
+60 ADD conflicts FROM conflicts_tmp
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+80 END
+90 resolution = RESOLVE_CONFLICTS()
+100 END
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Setting the input text as the initial value of "working"
+UPDATED MEMORY → {
+  "working": "The product box claims 10-hour battery life. Reviews consistently report 6 hours."
+}
+NEXT → None
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Extracting declarative knowledge from the input text
+UPDATED MEMORY → {
+  "working": ""
+}
+FACTS: ["The product box claims 10-hour battery life.", "Reviews consistently report 6 hours."]
+NEXT → None
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Adding the extracted declarative knowledge to the memory list of declarative statements
+UPDATED MEMORY → {
+  "working": ""
+}
+DECLARATIVE: ["The product box claims 10-hour battery life.", "Reviews consistently report 6 hours."]
+NEXT → None
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Detecting contradictions among the declarative statements
+UPDATED MEMORY → {
+  "working": ""
+}
+CONFLICTS: ["10 hours battery life || 6 hours battery life"]
+NEXT → None
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Adding the detected contradictions to the memory list of conflict statements
+UPDATED MEMORY → {
+  "working": ""
+}
+CONFLICTS: ["10 hours battery life || 6 hours battery life"]
+NEXT → None
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Checking if there are any contradictions and jumping to the line 90 if so
+UPDATED MEMORY → {
+  "working": ""
+}
+NEXT → None (skipped)
+
+=== [LINE 90] ===
+INSTRUCTION → resolution = RESOLVE_CONFLICTS()
+THOUGHT → Resolving the contradictions and setting the resolution summary
+UPDATED MEMORY → {
+  "working": "",
+  "resolution": "Battery life uncertain (10 hours vs 6 hours)"
+}
+NEXT → None
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Stopping and printing the final memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The product box claims 10-hour battery life.", "Reviews consistently report 6 hours."],
+  "procedural": [],
+  "conflicts": ["10 hours battery life || 6 hours battery life"],
+  "resolution": "Battery life uncertain (10 hours vs 6 hours)"
+}
+NEXT → None
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["The product box claims 10-hour battery life.", "Reviews consistently report 6 hours."],
+  "procedural": [],
+  "conflicts": ["10 hours battery life || 6 hours battery life"],
+  "resolution": "Battery life uncertain (10 hours vs 6 hours)"
+}
+
+============================================================
+TASK R24 (TYPE R)
+------------------------------------------------------------
+ ```
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → Begin program with a comment describing its purpose
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None (comments do not execute code)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → Read the user-supplied initial data (scenario text) and store it in `working`
+UPDATED MEMORY → {
+  "working": "The email says the meeting is canceled. The group chat says the meeting is still happening.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → Parse the `working` memory content and extract declarative knowledge, factual propositions describing what is true in the scenario
+UPDATED MEMORY → None (the function does not change program memory)
+NEXT → { "facts": ["The email says the meeting is canceled.", "The group chat says the meeting is still happening."] }
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → Add the extracted declarative knowledge to the program's memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The email says the meeting is canceled.", "The group chat says the meeting is still happening."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → Identify contradictions among the declarative knowledge in program memory, if any
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The email says the meeting is canceled.", "The group chat says the meeting is still happening."],
+  "procedural": [],
+  "conflicts": ["The meeting is canceled || The meeting is still happening."],
+  "resolution": ""
+}
+NEXT → { "conflicts_tmp": ["The meeting is canceled || The meeting is still happening."] }
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Add the detected contradictions to the program's memory
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The email says the meeting is canceled.", "The group chat says the meeting is still happening."],
+  "procedural": [],
+  "conflicts": ["The meeting is canceled || The meeting is still happening."],
+  "resolution": ""
+}
+NEXT → None
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → If there are contradictions in the program's memory, proceed to line 90 (resolve conflicts)
+UPDATED MEMORY → None
+NEXT → None (conditional jump to line 90)
+
+=== [LINE 100] ===
+INSTRUCTION → END
+THOUGHT → Program end, print the final memory as specified in EXECUTION RULES
+UPDATED MEMORY → None
+NEXT → None
+
+FINAL MEMORY:
+{
+  "working": "",
+  "declarative": ["The email says the meeting is canceled.", "The group chat says the meeting is still happening."],
+  "procedural": [],
+  "conflicts": ["The meeting is canceled || The meeting is still happening."],
+  "resolution": ""
+}
+
+============================================================
+TASK R25 (TYPE R)
+------------------------------------------------------------
+ I have executed the provided CogBASIC program step by step, following the rules you've outlined. Here's the structured log for each line:
+
+=== [LINE 10] ===
+INSTRUCTION → REM Extract declarative knowledge, detect conflicts, resolve them if needed
+THOUGHT → The program begins with a comment explaining its purpose. No changes are made to memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (20)
+
+=== [LINE 20] ===
+INSTRUCTION → LET working = INPUT()
+THOUGHT → The `working` variable is set to the input text supplied before the program. In this case, the input text is from the scenario: "The shipping app says the parcel is out for delivery. Customer service says it is still at the warehouse."
+UPDATED MEMORY → {
+  "working": "The shipping app says the parcel is out for delivery. Customer service says it is still at the warehouse.",
+  "declarative": [],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (30)
+
+=== [LINE 30] ===
+INSTRUCTION → facts = EXTRACT_DECLARATIVE(working)
+THOUGHT → The `facts` variable is set to an array of declarative knowledge strings, which are extracted from the input text. In this case: ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."]
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (40)
+
+=== [LINE 40] ===
+INSTRUCTION → ADD declarative FROM facts
+THOUGHT → The extracted declarative knowledge is added to the `declarative` list. In this case: ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."] are appended to the `declarative` list.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (50)
+
+=== [LINE 50] ===
+INSTRUCTION → conflicts_tmp = DETECT_CONFLICTS()
+THOUGHT → The `conflicts` list is overwritten with contradictions detected among the `declarative` list. In this case, there are no contradictions found because the provided declarative statements do not conflict. So the `conflicts` remain empty.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (60)
+
+=== [LINE 60] ===
+INSTRUCTION → ADD conflicts FROM conflicts_tmp
+THOUGHT → Since `conflicts` is empty, no changes are made to the memory.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (70)
+
+=== [LINE 70] ===
+INSTRUCTION → IF CONFLICTS_COUNT() > 0 THEN 90
+THOUGHT → Since `conflicts` is empty, the program continues sequentially to the next line (80).
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → Next line (80)
+
+=== [LINE 80] ===
+INSTRUCTION → END
+THOUGHT → The program reaches its end and stops execution.
+UPDATED MEMORY → {
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+NEXT → No next line (END)
+
+=== FINAL MEMORY: ===
+{
+  "working": "",
+  "declarative": ["The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse.", "The shipping app says the parcel is out for delivery.", "Customer service says it is still at the warehouse."],
+  "procedural": [],
+  "conflicts": [],
+  "resolution": ""
+}
+

@@ -1,0 +1,10 @@
+10 REM Extract declarative knowledge, detect conflicts, resolve them if needed
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 conflicts_tmp = DETECT_CONFLICTS()
+60 ADD conflicts FROM conflicts_tmp
+70 IF CONFLICTS_COUNT() > 0 THEN 90
+80 END
+90 resolution = RESOLVE_CONFLICTS()
+100 END

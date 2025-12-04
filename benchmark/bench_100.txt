@@ -1,0 +1,501 @@
+### TASK: D01
+TYPE: D
+SCENARIO:
+Declarative scenario 1: The library closes at 6pm. It opens again at 9am tomorrow.
+
+### TASK: D02
+TYPE: D
+SCENARIO:
+Declarative scenario 2: Maria owns a red bicycle. She bought it last year from a local shop.
+
+### TASK: D03
+TYPE: D
+SCENARIO:
+Declarative scenario 3: The store sells organic honey. Each jar contains 500 grams.
+
+### TASK: D04
+TYPE: D
+SCENARIO:
+Declarative scenario 4: The park covers an area of 12 hectares. It contains more than 600 trees.
+
+### TASK: D05
+TYPE: D
+SCENARIO:
+Declarative scenario 5: The seminar begins on Tuesday. All participants must register beforehand.
+
+### TASK: D06
+TYPE: D
+SCENARIO:
+Declarative scenario 6: Leon lives in an apartment on the third floor. His balcony faces the garden.
+
+### TASK: D07
+TYPE: D
+SCENARIO:
+Declarative scenario 7: The museum features 14 permanent exhibitions. One is dedicated to medieval art.
+
+### TASK: D08
+TYPE: D
+SCENARIO:
+Declarative scenario 8: The bakery bakes fresh bread every morning. It uses locally sourced wheat.
+
+### TASK: D09
+TYPE: D
+SCENARIO:
+Declarative scenario 9: The highway speed limit is 120 km/h. Heavy trucks are restricted to 80 km/h.
+
+### TASK: D10
+TYPE: D
+SCENARIO:
+Declarative scenario 10: The company employs 240 people. Its headquarters are located in Berlin.
+
+### TASK: D11
+TYPE: D
+SCENARIO:
+Declarative scenario 11: Laura speaks French fluently. She studied in Paris for two years.
+
+### TASK: D12
+TYPE: D
+SCENARIO:
+Declarative scenario 12: The zoo recently opened a reptile house. It contains 37 species.
+
+### TASK: D13
+TYPE: D
+SCENARIO:
+Declarative scenario 13: The concert lasts for 90 minutes. There is no intermission.
+
+### TASK: D14
+TYPE: D
+SCENARIO:
+Declarative scenario 14: The film won two international awards. It premiered in 2019.
+
+### TASK: D15
+TYPE: D
+SCENARIO:
+Declarative scenario 15: The café serves lunch from 12 to 3pm. Vegetarian meals are always available.
+
+### TASK: D16
+TYPE: D
+SCENARIO:
+Declarative scenario 16: The train travels from Cologne to Hamburg. The journey takes 4 hours.
+
+### TASK: D17
+TYPE: D
+SCENARIO:
+Declarative scenario 17: The research team published three papers this year. One focuses on machine learning.
+
+### TASK: D18
+TYPE: D
+SCENARIO:
+Declarative scenario 18: The school enrolls 850 students. It offers bilingual education.
+
+### TASK: D19
+TYPE: D
+SCENARIO:
+Declarative scenario 19: The mountain stands 2,300 meters tall. It attracts hikers year-round.
+
+### TASK: D20
+TYPE: D
+SCENARIO:
+Declarative scenario 20: The lake freezes every winter. Ice thickness averages 20 centimeters.
+
+### TASK: D21
+TYPE: D
+SCENARIO:
+Declarative scenario 21: The phone has a 6-inch display. It supports wireless charging.
+
+### TASK: D22
+TYPE: D
+SCENARIO:
+Declarative scenario 22: The office uses solar energy. Panels cover most of the roof.
+
+### TASK: D23
+TYPE: D
+SCENARIO:
+Declarative scenario 23: Nora plays the violin. She performs in a local orchestra.
+
+### TASK: D24
+TYPE: D
+SCENARIO:
+Declarative scenario 24: The bus arrives every 15 minutes. The last departure is at midnight.
+
+### TASK: D25
+TYPE: D
+SCENARIO:
+Declarative scenario 25: The garden contains tulips and roses. The flowers bloom in early spring.
+
+### TASK: P01
+TYPE: P
+SCENARIO:
+Procedural scenario 1: To bake bread, first mix flour and water, then knead the dough, and finally bake it in the oven.
+
+### TASK: P02
+TYPE: P
+SCENARIO:
+Procedural scenario 2: To start the car, insert the key, turn the ignition, and press the accelerator lightly.
+
+### TASK: P03
+TYPE: P
+SCENARIO:
+Procedural scenario 3: To water the plants, fill the can, pour water at the base, and avoid wetting the leaves.
+
+### TASK: P04
+TYPE: P
+SCENARIO:
+Procedural scenario 4: To make tea, boil water, add the tea bag, and let it steep for three minutes.
+
+### TASK: P05
+TYPE: P
+SCENARIO:
+Procedural scenario 5: To log in, enter your username, type your password, and click the confirm button.
+
+### TASK: P06
+TYPE: P
+SCENARIO:
+Procedural scenario 6: To clean the screen, spray cleaner on a cloth, wipe gently, and dry with a soft towel.
+
+### TASK: P07
+TYPE: P
+SCENARIO:
+Procedural scenario 7: To mail a parcel, package the item, attach a label, and drop it off at the counter.
+
+### TASK: P08
+TYPE: P
+SCENARIO:
+Procedural scenario 8: To start the meeting, open the agenda, greet participants, and begin with the first topic.
+
+### TASK: P09
+TYPE: P
+SCENARIO:
+Procedural scenario 9: To prepare pasta, boil water, add noodles, and cook until tender.
+
+### TASK: P10
+TYPE: P
+SCENARIO:
+Procedural scenario 10: To recharge the battery, plug in the charger, wait for the indicator to turn green, and unplug it.
+
+### TASK: P11
+TYPE: P
+SCENARIO:
+Procedural scenario 11: To assemble the shelf, align the boards, insert the screws, and tighten them.
+
+### TASK: P12
+TYPE: P
+SCENARIO:
+Procedural scenario 12: To check out books, scan them, present your card, and confirm the due date.
+
+### TASK: P13
+TYPE: P
+SCENARIO:
+Procedural scenario 13: To install software, download the file, open the installer, and follow instructions.
+
+### TASK: P14
+TYPE: P
+SCENARIO:
+Procedural scenario 14: To change a light bulb, switch off the power, remove the old bulb, and screw in a new one.
+
+### TASK: P15
+TYPE: P
+SCENARIO:
+Procedural scenario 15: To organize files, create folders, move items into groups, and label them.
+
+### TASK: P16
+TYPE: P
+SCENARIO:
+Procedural scenario 16: To record audio, open the app, press the record button, and speak clearly.
+
+### TASK: P17
+TYPE: P
+SCENARIO:
+Procedural scenario 17: To clean the table, remove items, wipe the surface, and put things back.
+
+### TASK: P18
+TYPE: P
+SCENARIO:
+Procedural scenario 18: To edit a document, open the file, make changes, and save it.
+
+### TASK: P19
+TYPE: P
+SCENARIO:
+Procedural scenario 19: To prepare a smoothie, cut the fruit, add yogurt, and blend it.
+
+### TASK: P20
+TYPE: P
+SCENARIO:
+Procedural scenario 20: To send an email, write the message, add a subject, and click send.
+
+### TASK: P21
+TYPE: P
+SCENARIO:
+Procedural scenario 21: To start the washing machine, load clothes, add detergent, and choose a program.
+
+### TASK: P22
+
+TYPE: P
+SCENARIO:
+Procedural scenario 22: To back up files, select them, copy to an external drive, and verify completion.
+
+### TASK: P23
+TYPE: P
+SCENARIO:
+Procedural scenario 23: To plant a seed, dig a hole, place the seed, and cover it with soil.
+
+### TASK: P24
+TYPE: P
+SCENARIO:
+Procedural scenario 24: To wash dishes, rinse them, scrub with soap, and dry them.
+
+### TASK: P25
+TYPE: P
+SCENARIO:
+Procedural scenario 25: To create a calendar event, open the app, set date and time, and save it.
+
+### TASK: C01
+TYPE: C
+SCENARIO:
+Conflict scenario 1: Maria says the meeting is on Monday at 10am. The calendar invitation shows Tuesday at 10am.
+
+### TASK: C02
+TYPE: C
+SCENARIO:
+Conflict scenario 2: The product label states the device is water-resistant. The manual says it must never be submerged.
+
+### TASK: C03
+TYPE: C
+SCENARIO:
+Conflict scenario 3: A witness claims the restaurant opened in 2015. The registry lists 2017.
+
+### TASK: C04
+TYPE: C
+SCENARIO:
+Conflict scenario 4: The alert says no rain today. The radar shows heavy clouds.
+
+### TASK: C05
+TYPE: C
+SCENARIO:
+Conflict scenario 5: The contract requires written cancellation. Support says verbal cancellation is allowed.
+
+### TASK: C06
+TYPE: C
+SCENARIO:
+Conflict scenario 6: Admission is free for children under 12. The counter charges 11-year-olds.
+
+### TASK: C07
+TYPE: C
+SCENARIO:
+Conflict scenario 7: A report says the bridge holds 8 tons. An engineer claims 12 tons.
+
+### TASK: C08
+TYPE: C
+SCENARIO:
+Conflict scenario 8: Tom says he never eats meat. The next day he orders a burger.
+
+### TASK: C09
+TYPE: C
+SCENARIO:
+Conflict scenario 9: The tracker says the package is in the warehouse. A message says it was delivered.
+
+### TASK: C10
+TYPE: C
+SCENARIO:
+Conflict scenario 10: The handbook forbids late submissions. The professor allows 3 extra days.
+
+### TASK: C11
+TYPE: C
+SCENARIO:
+Conflict scenario 11: The bus schedule lists a 10-minute interval. The sign at the stop says 20 minutes.
+
+### TASK: C12
+TYPE: C
+SCENARIO:
+Conflict scenario 12: A brochure claims the museum opens at 8am. The website states 9am.
+
+### TASK: C13
+TYPE: C
+SCENARIO:
+Conflict scenario 13: The thermometer reads 18°C. The weather app reports 12°C.
+
+### TASK: C14
+TYPE: C
+SCENARIO:
+Conflict scenario 14: The doctor says the medicine must be taken daily. The pharmacist says twice daily.
+
+### TASK: C15
+TYPE: C
+SCENARIO:
+Conflict scenario 15: Anna claims the package arrived yesterday. The sender says it’s still in transit.
+
+### TASK: C16
+
+TYPE: C
+SCENARIO:
+Conflict scenario 16: The restaurant menu lists the price as €12. The receipt shows €14.
+
+### TASK: C17
+TYPE: C
+SCENARIO:
+Conflict scenario 17: The sensor reports low battery. The system dashboard says battery full.
+
+### TASK: C18
+TYPE: C
+SCENARIO:
+Conflict scenario 18: The train announcement says platform 3. The display board shows platform 5.
+
+### TASK: C19
+TYPE: C
+SCENARIO:
+Conflict scenario 19: The map indicates the trail is open. The ranger notes the trail is closed.
+
+### TASK: C20
+TYPE: C
+SCENARIO:
+Conflict scenario 20: The fridge display shows 4°C. A thermometer inside shows 9°C.
+
+### TASK: C21
+TYPE: C
+SCENARIO:
+Conflict scenario 21: Leo says the meeting moved to Friday. The email says Thursday.
+
+### TASK: C22
+TYPE: C
+SCENARIO:
+Conflict scenario 22: The charger box states 30-minute fast charge. The manual warns fast charge is unsupported.
+
+### TASK: C23
+TYPE: C
+SCENARIO:
+Conflict scenario 23: The hotel booking says breakfast included. The receptionist says breakfast costs extra.
+
+### TASK: C24
+TYPE: C
+SCENARIO:
+Conflict scenario 24: The calendar shows a holiday. The workplace schedule lists a normal workday.
+
+### TASK: C25
+TYPE: C
+SCENARIO:
+Conflict scenario 25: The app says the bike is available. The station shows it is locked and out of service.
+
+### TASK: R01
+TYPE: R
+SCENARIO:
+Conflict scenario 1: The invoice says €120 is due. The email from support says €100 is due.
+
+### TASK: R02
+TYPE: R
+SCENARIO:
+Conflict scenario 2: The calendar lists a team meeting at 9am. The manager says it starts at 10am.
+
+### TASK: R03
+TYPE: R
+SCENARIO:
+Conflict scenario 3: A sign claims parking is free on Sundays. The meter charges €2 per hour.
+
+### TASK: R04
+TYPE: R
+SCENARIO:
+Conflict scenario 4: The weather app predicts sunshine. The radio forecast warns of rain.
+
+### TASK: R05
+TYPE: R
+SCENARIO:
+Conflict scenario 5: The recipe says bake for 20 minutes. The packaging says 30 minutes.
+
+### TASK: R06
+TYPE: R
+SCENARIO:
+Conflict scenario 6: The ticket says entrance at 7pm. The event website lists 8pm.
+
+### TASK: R07
+TYPE: R
+SCENARIO:
+Conflict scenario 7: A doctor advises rest. A trainer recommends continuing regular workouts.
+
+### TASK: R08
+TYPE: R
+SCENARIO:
+Conflict scenario 8: The map shows the museum north of the station. An information board shows it south.
+
+### TASK: R09
+TYPE: R
+SCENARIO:
+Conflict scenario 9: The manual says the device weighs 900g. The website lists 750g.
+
+### TASK: R10
+TYPE: R
+SCENARIO:
+Conflict scenario 10: The bus timetable shows departures every 12 minutes. The driver says every 15 minutes.
+
+### TASK: R11
+TYPE: R
+SCENARIO:
+Conflict scenario 11: The school calendar lists vacation next week. A note from the teacher says classes continue.
+
+### TASK: R12
+TYPE: R
+SCENARIO:
+Conflict scenario 12: The apartment contract lists heating included. The landlord says heating is extra.
+
+### TASK: R13
+TYPE: R
+SCENARIO:
+Conflict scenario 13: The flight confirmation says free luggage. The airline agent says luggage must be paid.
+
+### TASK: R14
+TYPE: R
+SCENARIO:
+Conflict scenario 14: The sports center app shows the pool open. The receptionist says it’s closed.
+
+### TASK: R15
+TYPE: R
+SCENARIO:
+Conflict scenario 15: The medicine leaflet says take before meals. The doctor says take after meals.
+
+### TASK: R16
+TYPE: R
+SCENARIO:
+Conflict scenario 16: The street sign limits speed to 50 km/h. The navigation says limit is 70 km/h.
+
+### TASK: R17
+TYPE: R
+SCENARIO:
+Conflict scenario 17: The event brochure says children enter free. The ticket booth charges €5.
+
+### TASK: R18
+TYPE: R
+SCENARIO:
+Conflict scenario 18: The email says the meeting is online. The calendar says in-person room A23.
+
+### TASK: R19
+TYPE: R
+SCENARIO:
+Conflict scenario 19: The test instructions say pencils only. The proctor allows pens.
+
+### TASK: R20
+TYPE: R
+SCENARIO:
+Conflict scenario 20: The shop claims a 2-year warranty. The receipt lists 1 year.
+
+### TASK: R21
+TYPE: R
+SCENARIO:
+Conflict scenario 21: The form requires signature. The clerk says no signature needed.
+
+### TASK: R22
+TYPE: R
+SCENARIO:
+Conflict scenario 22: The bus stop map shows route 12 stops here. The schedule says route 12 passes two streets away.
+
+### TASK: R23
+TYPE: R
+SCENARIO:
+Conflict scenario 23: The product box claims 10-hour battery life. Reviews consistently report 6 hours.
+
+### TASK: R24
+TYPE: R
+SCENARIO:
+Conflict scenario 24: The email says the meeting is canceled. The group chat says the meeting is still happening.
+
+### TASK: R25
+TYPE: R
+SCENARIO:
+Conflict scenario 25: The shipping app says the parcel is out for delivery. Customer service says it is still at the warehouse.

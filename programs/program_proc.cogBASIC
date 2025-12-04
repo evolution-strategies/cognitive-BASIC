@@ -1,0 +1,5 @@
+10 REM Extract procedural knowledge only
+20 LET working = INPUT()
+30 rules = EXTRACT_PROCEDURAL(working)
+40 ADD procedural FROM rules
+50 END

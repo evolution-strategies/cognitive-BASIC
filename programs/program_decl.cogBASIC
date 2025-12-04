@@ -1,0 +1,5 @@
+10 REM Extract declarative knowledge only
+20 LET working = INPUT()
+30 facts = EXTRACT_DECLARATIVE(working)
+40 ADD declarative FROM facts
+50 END
