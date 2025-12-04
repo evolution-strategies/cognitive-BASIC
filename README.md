@@ -1,11 +1,7 @@
 # Cognitive BASIC
 
-Cognitive BASIC is a lightweight, line-numbered cognitive programming framework executed *inside* large language models.  
-It provides deterministic control flow for tasks such as declarative extraction, procedural extraction, conflict detection, and conflict resolution.  
-All reasoning steps run in-model through a textual interpreter.
-
-This repository accompanies the research paper:
-paper/cognitiveBASIC.pdf
+Cognitive BASIC is a lightweight, line-numbered cognitive programming framework executed *inside* large language models. It provides deterministic control flow for tasks such as declarative extraction, procedural extraction, conflict detection, and conflict resolution.  
+All reasoning steps run in-model through a textual interpreter. This repository accompanies the research paper that can be found in paper/cognitiveBASIC.pdf and is currently under review at ESANN 2026.
 
 -------------------------------------------------------------------------------
 
