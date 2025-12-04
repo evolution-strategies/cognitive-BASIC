@@ -143,12 +143,12 @@ def main():
             print(f"Using program: {program_path.name}\n")
 
             exec_prompt = (
-                "You are the CogBASIC Interpreter.\n"
+                "You are the Cognitive BASIC Interpreter.\n"
                 + interpreter +
                 "\n\n--- Scenario Text ---\n"
                 + t["scenario"] +
                 "\n--- End Scenario ---\n\n"
-                "--- CogBASIC Program ---\n"
+                "--- Cognitive BASIC Program ---\n"
                 + program +
                 "\n\nExecute step by step and produce your full output."
             )
